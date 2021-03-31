@@ -35,3 +35,19 @@ img_test.size
 np.asarray(img_test)
 
 h = tint_annot_image(img_test,tint_color)
+
+
+h = tint_annot_image(d,tint_color)
+
+
+
+im_folder_path = "/nfshome/xinwenzhang/mnt/exasmb.rc.ufl.edu-blue/mcintyre-cid/share/fly_image_analysis/human_labeled/fly_seg_4objects"
+im_name = "18_1-1"
+part = "thorax"
+
+)
+im_mask = Image.open(im_folder_path + "/" + im_name + "/" + "class_masks/" + "a_"+ part +".png") # get mask
+
+# find center from thorax mask
+fly_center = find_object_center(im_mask)
+crop_side_img(im_org, fly_center, goal_width=500)
