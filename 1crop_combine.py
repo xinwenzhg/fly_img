@@ -7,9 +7,6 @@ This script
 @author: xinwenzhang
 """
 
-#from PIL import Image
-#import numpy as np
-
 from pathlib import Path
 from custom_module import *
 
@@ -34,10 +31,10 @@ tint_color={0:[255,255,255], # white , the background
 # create a folder to put
 #p = Path(r"E:\xinwe\proj_mng\fly_im_xwz")
 p = Path(r"/ufgi-vulcana/data/xinwen_local/fly_ml_xwz")
-Path.mkdir(p / "ml_workspace")
-Path.mkdir(p / "ml_workspace" / "rgb_img")
-Path.mkdir(p / "ml_workspace" / "annot_img")
-Path.mkdir(p / "ml_workspace" / "check_annot")
+Path.mkdir(p / "ml_workspace", exist_ok=True)
+Path.mkdir(p / "ml_workspace" / "rgb_img", exist_ok=True)
+Path.mkdir(p / "ml_workspace" / "annot_img", exist_ok=True)
+Path.mkdir(p / "ml_workspace" / "check_annot", exist_ok=True)
 
 pwks = Path(p / "ml_workspace")
 

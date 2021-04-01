@@ -68,7 +68,7 @@ def create_annot_img(img_folder, annot_dict):
         #print(np.amax(ary_mask_one))
         #print(np.amin(ary_mask_one))
         #print(annot_dict[key])
-        annot_channel +=  annot_dict[key] * ary_mask_one
+        annot_channel[ary_mask_one == 1 ] =  annot_dict[key]
         #print(annot_channel)
     #return(annot_channel)
     return Image.fromarray(annot_channel, mode="L")  # annot_channel must be in "uint8" format.
