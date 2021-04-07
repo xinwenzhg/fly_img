@@ -53,11 +53,11 @@ def create_annot_img(img_folder, annot_dict):
     height = im_mask_abd.size[1]
 
     # init the annot channel, and loop through all masks
-    annot_channel = np.zeros((height, width),dtype="uint8")
+    annot_channel = np.zeros((height, width),dtype="uint8")  # the default one is background class
     for key in annot_dict.keys():
         #print(key)
         mask_filename =  key + ".png"
-        
+
         try:
             im_mask_one = Image.open(class_masks_path / mask_filename )
         except FileNotFoundError:
@@ -68,7 +68,7 @@ def create_annot_img(img_folder, annot_dict):
         #print(np.amax(ary_mask_one))
         #print(np.amin(ary_mask_one))
         #print(annot_dict[key])
-        annot_channel +=  annot_dict[key] * ary_mask_one
+        annot_channel[ary_mask_one == 1 ] =  annot_dict[key]
         #print(annot_channel)
     #return(annot_channel)
     return Image.fromarray(annot_channel, mode="L")  # annot_channel must be in "uint8" format.

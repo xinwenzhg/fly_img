@@ -1,0 +1,15 @@
+# ignore everything
+*
+
+# But not these files
+!.gitignore
+!*.md
+!*.py
+!*.sas
+!*.R
+!*.sh
+!*.sql
+!*.yml
+!*.ipynb
+!*.xlsx
+!*.spec
